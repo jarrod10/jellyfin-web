@@ -1450,7 +1450,7 @@
     "LabelOriginalMediaInfo": "媒体源信息",
     "LabelSyncPlayInfo": "同步播放信息",
     "PreferFmp4HlsContainer": "优先使用 fMP4-HLS 媒体容器",
-    "PreferFmp4HlsContainerHelp": "优先使用 fMP4 作为 HLS 播放的默认容器，从而可以在支持的设备上直接串流 HEVC 格式的内容。",
+    "PreferFmp4HlsContainerHelp": "优先使用 fMP4 作为 HLS 播放的默认容器，从而可以在支持的设备上直接串流 HEVC 和 AV1 格式的内容。",
     "AllowHevcEncoding": "允许以 HEVC 格式编码",
     "LabelAllowedAudioChannels": "允许的最大声道数量",
     "LabelSelectAudioChannels": "声道",
@@ -1781,5 +1781,6 @@
     "LabelTrackGain": "音轨增益",
     "SelectAudioNormalizationHelp": "音轨增益 - 调整每个音轨的音量，使它们播放时具有相同的响度。专辑增益 - 只调整专辑中所有音轨的音量，保持专辑的动态范围。",
     "LabelAlbumGain": "专辑增益",
-    "LabelSelectAudioNormalization": "音频标准化"
+    "LabelSelectAudioNormalization": "音频标准化",
+    "HeaderAllRecordings": "所有录制的节目"
 }
