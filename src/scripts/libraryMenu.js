@@ -41,6 +41,7 @@ function renderHeader() {
     html += '<h3 class="pageTitle" aria-hidden="true"></h3>';
     html += '</div>';
     html += '<div class="headerRight">';
+    html += '<button is="paper-icon-button-light" class="headerLibraryButton LibraryButton headerButton headerButtonRight hide"><span class="material-icons" aria-hidden="true">library_books</span></button>';
     html += '<button is="paper-icon-button-light" class="headerSyncButton syncButton headerButton headerButtonRight hide"><span class="material-icons groups" aria-hidden="true"></span></button>';
     html += '<span class="headerSelectedPlayer"></span>';
     html += '<button is="paper-icon-button-light" class="headerAudioPlayerButton audioPlayerButton headerButton headerButtonRight hide"><span class="material-icons music_note" aria-hidden="true"></span></button>';
@@ -65,6 +66,7 @@ function renderHeader() {
     headerAudioPlayerButton = skinHeader.querySelector('.headerAudioPlayerButton');
     headerSearchButton = skinHeader.querySelector('.headerSearchButton');
     headerSyncButton = skinHeader.querySelector('.headerSyncButton');
+    headerLibraryButton = skinHeader.querySelector('.headerLibraryButton');
     currentTimeText = skinHeader.querySelector('.currentTimeText');
 
     retranslateUi();
@@ -107,6 +109,10 @@ function retranslateUi() {
 
     if (headerSyncButton) {
         headerSyncButton.title = globalize.translate('ButtonSyncPlay');
+    }
+
+    if (headerLibraryButton) {
+        headerLibraryButton.title = 'Media Library'; //globalize.translate('Media Library');
     }
 
     if (headerAudioPlayerButton) {
@@ -156,6 +162,10 @@ function updateUserInHeader(user) {
             headerSearchButton.classList.remove('hide');
         }
 
+        if (headerLibraryButton) {
+            headerLibraryButton.classList.remove('hide');
+        }
+
         if (!layoutManager.tv) {
             headerCastButton.classList.remove('hide');
         }
@@ -176,6 +186,7 @@ function updateUserInHeader(user) {
         headerHomeButton.classList.add('hide');
         headerCastButton.classList.add('hide');
         headerSyncButton.classList.add('hide');
+        headerLibraryButton.classList.add('hide');
 
         if (headerSearchButton) {
             headerSearchButton.classList.add('hide');
@@ -222,6 +233,11 @@ function showAudioPlayer() {
     return appRouter.showNowPlaying();
 }
 
+function showMediaLibrary() {
+    Dashboard.navigate('home.html');
+    // return appRouter.showNowPlaying();
+}
+
 function bindMenuEvents() {
     if (mainDrawerButton) {
         mainDrawerButton.addEventListener('click', toggleMainDrawer);
@@ -244,6 +260,7 @@ function bindMenuEvents() {
 
     headerAudioPlayerButton.addEventListener('click', showAudioPlayer);
     headerSyncButton.addEventListener('click', onSyncButtonClicked);
+    headerLibraryButton.addEventListener('click', showMediaLibrary);
 
     if (layoutManager.mobile) {
         initHeadRoom(skinHeader);
@@ -696,6 +713,7 @@ let headerCastButton;
 let headerSearchButton;
 let headerAudioPlayerButton;
 let headerSyncButton;
+let headerLibraryButton;
 let currentTimeText;
 const enableLibraryNavDrawer = layoutManager.desktop;
 const enableLibraryNavDrawerHome = !layoutManager.tv;
