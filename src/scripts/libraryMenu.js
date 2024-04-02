@@ -234,8 +234,7 @@ function showAudioPlayer() {
 }
 
 function showMediaLibrary() {
-    Dashboard.navigate('home.html');
-    // return appRouter.showNowPlaying();
+    Dashboard.navigate('medialibrary.html');
 }
 
 function bindMenuEvents() {

@@ -753,10 +753,10 @@ class AppRouter {
         return this.show('livetv.html');
     }
 
-    showMediaLibrary() {
-        // create a iframe in a html template file to load jellyseerr website.
-        return this.show('test.html');
-    }
+    // showMediaLibrary() {
+    //     // create a iframe in a html template file to load jellyseerr website.
+    //     return this.show('medialibrary.html');
+    // }
 
     showRecordedTV() {
         return this.show('livetv.html?tab=3');
