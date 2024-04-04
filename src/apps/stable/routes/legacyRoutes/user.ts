@@ -99,10 +99,10 @@ export const LEGACY_USER_ROUTES: LegacyRoute[] = [
             view: 'movies/movies.html'
         }
     }, {
-        path: 'medialibrary.html',
+        path: 'mediarequestlibrary.html',
         pageProps: {
-            controller: 'medialibrary',
-            view: 'medialibrary.html'
+            controller: 'mediarequestlibrary',
+            view: 'mediarequestlibrary.html'
         }
     }
 ];

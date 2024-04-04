@@ -41,7 +41,7 @@ function renderHeader() {
     html += '<h3 class="pageTitle" aria-hidden="true"></h3>';
     html += '</div>';
     html += '<div class="headerRight">';
-    html += '<button is="paper-icon-button-light" class="headerLibraryButton LibraryButton headerButton headerButtonRight hide"><span class="material-icons" aria-hidden="true">library_books</span></button>';
+    html += '<button is="paper-icon-button-light" class="headerMediaRequestLibraryButton LibraryButton headerButton headerButtonRight hide"><span class="material-icons" aria-hidden="true">library_books</span></button>';
     html += '<button is="paper-icon-button-light" class="headerSyncButton syncButton headerButton headerButtonRight hide"><span class="material-icons groups" aria-hidden="true"></span></button>';
     html += '<span class="headerSelectedPlayer"></span>';
     html += '<button is="paper-icon-button-light" class="headerAudioPlayerButton audioPlayerButton headerButton headerButtonRight hide"><span class="material-icons music_note" aria-hidden="true"></span></button>';
@@ -66,7 +66,7 @@ function renderHeader() {
     headerAudioPlayerButton = skinHeader.querySelector('.headerAudioPlayerButton');
     headerSearchButton = skinHeader.querySelector('.headerSearchButton');
     headerSyncButton = skinHeader.querySelector('.headerSyncButton');
-    headerLibraryButton = skinHeader.querySelector('.headerLibraryButton');
+    headerMediaRequestLibraryButton = skinHeader.querySelector('.headerMediaRequestLibraryButton');
     currentTimeText = skinHeader.querySelector('.currentTimeText');
 
     retranslateUi();
@@ -111,8 +111,8 @@ function retranslateUi() {
         headerSyncButton.title = globalize.translate('ButtonSyncPlay');
     }
 
-    if (headerLibraryButton) {
-        headerLibraryButton.title = 'Media Library'; //globalize.translate('Media Library');
+    if (headerMediaRequestLibraryButton) {
+        headerMediaRequestLibraryButton.title = 'Media Request Library'; //globalize.translate('Media Library');
     }
 
     if (headerAudioPlayerButton) {
@@ -162,8 +162,8 @@ function updateUserInHeader(user) {
             headerSearchButton.classList.remove('hide');
         }
 
-        if (headerLibraryButton) {
-            headerLibraryButton.classList.remove('hide');
+        if (headerMediaRequestLibraryButton) {
+            headerMediaRequestLibraryButton.classList.remove('hide');
         }
 
         if (!layoutManager.tv) {
@@ -186,7 +186,7 @@ function updateUserInHeader(user) {
         headerHomeButton.classList.add('hide');
         headerCastButton.classList.add('hide');
         headerSyncButton.classList.add('hide');
-        headerLibraryButton.classList.add('hide');
+        headerMediaRequestLibraryButton.classList.add('hide');
 
         if (headerSearchButton) {
             headerSearchButton.classList.add('hide');
@@ -233,8 +233,8 @@ function showAudioPlayer() {
     return appRouter.showNowPlaying();
 }
 
-function showMediaLibrary() {
-    Dashboard.navigate('medialibrary.html');
+function onMediaRequestLibraryButtonClick() {
+    Dashboard.navigate('mediarequestlibrary.html');
 }
 
 function bindMenuEvents() {
@@ -259,7 +259,7 @@ function bindMenuEvents() {
 
     headerAudioPlayerButton.addEventListener('click', showAudioPlayer);
     headerSyncButton.addEventListener('click', onSyncButtonClicked);
-    headerLibraryButton.addEventListener('click', showMediaLibrary);
+    headerMediaRequestLibraryButton.addEventListener('click', onMediaRequestLibraryButtonClick);
 
     if (layoutManager.mobile) {
         initHeadRoom(skinHeader);
@@ -712,7 +712,7 @@ let headerCastButton;
 let headerSearchButton;
 let headerAudioPlayerButton;
 let headerSyncButton;
-let headerLibraryButton;
+let headerMediaRequestLibraryButton;
 let currentTimeText;
 const enableLibraryNavDrawer = layoutManager.desktop;
 const enableLibraryNavDrawerHome = !layoutManager.tv;
