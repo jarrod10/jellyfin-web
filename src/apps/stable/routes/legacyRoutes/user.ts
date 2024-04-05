@@ -101,8 +101,8 @@ export const LEGACY_USER_ROUTES: LegacyRoute[] = [
     }, {
         path: 'mediarequestlibrary.html',
         pageProps: {
-            controller: 'mediarequestlibrary',
-            view: 'mediarequestlibrary.html'
+            controller: 'user/mediaRequest/mediarequestlibrary',
+            view: 'user/mediaRequest/mediarequestlibrary.html'
         }
     }
 ];
